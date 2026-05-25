@@ -15,7 +15,7 @@ exports.handler = async (event) => {
   }
 
   const token = (process.env.ACTIVE_TRAIL_API_KEY || '').trim();
-  const groupId = Number(process.env.ACTIVE_TRAIL_GROUP_ID || '234804');
+  const groupId = Number(process.env.ACTIVE_TRAIL_GROUP_ID || '235025');
 
   const params = event.queryStringParameters || {};
   const bodyData = JSON.parse(event.body || '{}');
