@@ -356,7 +356,7 @@
 
     /* Info block */
     .bike-info {
-      padding: 34px 32px 20px;
+      padding: 34px 32px 20px 22px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -372,14 +372,16 @@
       object-fit: contain;
     }
     .bike-name {
-      font-size: clamp(28px, 3.8vw, 42px);
+      font-size: clamp(26px, 3.05vw, 38px);
       font-weight: 900;
       color: var(--text);
-      line-height: 1.1;
+      line-height: 1.05;
       margin-bottom: 10px;
       direction: ltr;
       text-align: right;
       unicode-bidi: isolate;
+      white-space: nowrap;
+      letter-spacing: 0;
     }
     .bike-desc {
       font-size: 15px;
@@ -450,6 +452,10 @@
         padding: 20px;
       }
       .bike-info { padding: 24px 22px 20px; }
+      .bike-name {
+        white-space: normal;
+        font-size: clamp(30px, 8vw, 40px);
+      }
       .bike-specs { grid-template-columns: 1fr; }
       .spec-item {
         min-height: 0;

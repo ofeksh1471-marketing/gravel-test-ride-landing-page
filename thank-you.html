@@ -59,9 +59,6 @@
       width: 100%;
       display: block;
     }
-    .thanks-mobile {
-      display: none;
-    }
 
     .survey-card {
       background: #fff;
@@ -248,12 +245,6 @@
         border-radius: 14px;
         margin-bottom: 18px;
       }
-      .thanks-desktop {
-        display: none;
-      }
-      .thanks-mobile {
-        display: block;
-      }
       .survey-intro h1 {
         font-size: clamp(20px, 5.2vw, 24px);
       }
@@ -268,8 +259,10 @@
 
   <main class="page-wrap">
     <div class="thanks-card">
-      <img class="thanks-desktop" src="thank-you-desktop.png" alt="תודה שנרשמתם!" />
-      <img class="thanks-mobile" src="thank-you-mobile.png" alt="תודה שנרשמתם!" />
+      <picture>
+        <source media="(max-width: 640px)" srcset="thank-you-mobile.png" />
+        <img src="thank-you-desktop.png" alt="תודה שנרשמתם!" />
+      </picture>
     </div>
 
     <section class="survey-card" aria-labelledby="survey-title">
@@ -310,7 +303,7 @@
           <div class="option-grid brand-grid">
             <label class="option-item"><input type="checkbox" name="במידה וכן אילו מותגים נוספים בכוונתך לבחון[]" value="Specialized" /> Specialized</label>
             <label class="option-item"><input type="checkbox" name="במידה וכן אילו מותגים נוספים בכוונתך לבחון[]" value="Trek" /> Trek</label>
-            <label class="option-item"><input type="checkbox" name="במידה וכן אילו מותגים נוספים בכוונתך לבחון[]" value="Cannondale" /> Cannondale</label>
+            <label class="option-item"><input type="checkbox" name="במידה וכן אילו מותגים נוספים בכוונתך לבחון[]" value="BMC" /> BMC</label>
             <label class="option-item"><input type="checkbox" name="במידה וכן אילו מותגים נוספים בכוונתך לבחון[]" value="Scott" /> Scott</label>
             <label class="option-item"><input type="checkbox" name="במידה וכן אילו מותגים נוספים בכוונתך לבחון[]" value="Norco" /> Norco</label>
             <label class="option-item"><input type="checkbox" name="במידה וכן אילו מותגים נוספים בכוונתך לבחון[]" value="Merida" /> Merida</label>
