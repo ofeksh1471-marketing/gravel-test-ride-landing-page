@@ -627,11 +627,15 @@
   <!-- ── VIDEO HERO ── -->
   <div class="video-hero">
 
+    <video class="desktop-hero-video" autoplay muted loop playsinline preload="auto" aria-label="Gravel test ride desktop video">
+      <source src="gravel-hero-desktop.mp4" type="video/mp4" />
+    </video>
+
     <video class="mobile-hero-video" autoplay muted loop playsinline preload="auto" aria-label="Gravel test ride mobile video">
       <source src="gravel-hero-mobile.mp4" type="video/mp4" />
     </video>
 
-    <!-- מוצג בדסקטופ עד שיעלה וידאו ייעודי -->
+    <!-- מוצג כל עוד אין וידאו תקין -->
     <div class="video-placeholder" id="fallback"></div>
 
     <div class="video-overlay">
@@ -651,7 +655,7 @@
       <!-- GRAVEL MODEL -->
       <div class="bike-card">
         <div class="bike-photo gravel-ph">
-          <img src="gravel-model-1.png" alt="Orbea Terra Carbon OMR" onerror="this.style.display='none'" />
+          <img src="gravel-model-1.webp" alt="Orbea Terra Carbon OMR" onerror="this.style.display='none'" />
         </div>
         <div class="bike-info">
           <div class="bike-brand-tag"><img src="orbea-logo.png" alt="ORBEA" /></div>
