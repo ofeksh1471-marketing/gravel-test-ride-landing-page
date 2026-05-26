@@ -302,7 +302,7 @@
 
     .signup-layout {
       display: grid;
-      grid-template-columns: minmax(380px, .86fr) minmax(0, 1.14fr);
+      grid-template-columns: minmax(480px, 1.08fr) minmax(340px, .92fr);
       grid-template-areas: "form bike";
       gap: 24px;
       max-width: 1180px;
@@ -345,17 +345,18 @@
     /* Photo area */
     .bike-photo {
       width: 100%;
-      min-height: 270px;
+      height: 260px;
+      min-height: 0;
       background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px 26px 14px;
+      padding: 18px 20px 8px;
       overflow: hidden;
     }
     .bike-photo img {
       max-width: 100%;
-      max-height: 100%;
+      max-height: 240px;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -365,17 +366,17 @@
     .bike-card:hover .bike-photo img { transform: scale(1.04); }
 
     .gravel-ph img {
-      max-width: 104%;
-      max-height: 104%;
-      transform: scale(1.06);
+      max-width: 94%;
+      max-height: 94%;
+      transform: scale(1);
     }
-    .bike-card:hover .gravel-ph img { transform: scale(1.1); }
+    .bike-card:hover .gravel-ph img { transform: scale(1.04); }
 
     .bike-photo.gravel-ph { background: #ffffff; }
 
     /* Info block */
     .bike-info {
-      padding: 20px 30px 22px;
+      padding: 14px 24px 18px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -393,25 +394,17 @@
       object-fit: contain;
     }
     .bike-name {
-      font-size: clamp(30px, 3.3vw, 42px);
+      font-size: clamp(25px, 2.55vw, 34px);
       font-weight: 900;
       color: var(--text);
       line-height: 1.05;
-      margin-bottom: 10px;
+      margin-bottom: 0;
       direction: ltr;
       text-align: center;
       unicode-bidi: isolate;
       white-space: nowrap;
       letter-spacing: 0;
     }
-    .bike-desc {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.55;
-      margin-bottom: 0;
-      max-width: 520px;
-    }
-
     /* Specs row */
     .bike-specs {
       display: grid;
@@ -487,6 +480,14 @@
         min-height: 0;
         height: auto;
         padding: 20px;
+      }
+      .bike-photo img {
+        max-height: 100%;
+      }
+      .gravel-ph img {
+        max-width: 104%;
+        max-height: 104%;
+        transform: scale(1.06);
       }
       .bike-info { padding: 24px 22px 20px; }
       .bike-name {
@@ -759,7 +760,6 @@
           <div class="bike-info">
             <div class="bike-brand-tag"><img src="orbea-logo.png" alt="ORBEA" /></div>
             <div class="bike-name">TERRA M31eTEAM 1X</div>
-            <div class="bike-desc">אופני גראבל עם שלדת קרבון - ביצועים, שליטה, נוחות וביטחון.</div>
           </div>
           <div class="bike-specs">
             <div class="spec-item">
