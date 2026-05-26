@@ -128,7 +128,7 @@
     }
 
     .form-top {
-      text-align: right;
+      text-align: center;
       margin-bottom: 28px;
     }
     .form-top h2 {
@@ -147,7 +147,7 @@
       height: 4px;
       background: var(--orange);
       border-radius: 4px;
-      margin: 16px 0 0;
+      margin: 16px auto 0;
     }
 
     /* ── INPUTS ── */
@@ -326,6 +326,10 @@
       direction: rtl;
     }
 
+    .bike-mobile-title {
+      display: none;
+    }
+
     .bike-card {
       background: #fff;
       border-radius: 18px;
@@ -356,7 +360,7 @@
     }
     .bike-photo img {
       max-width: 100%;
-      max-height: 182px;
+      max-height: 190px;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -366,11 +370,11 @@
     .bike-card:hover .bike-photo img { transform: scale(1.04); }
 
     .gravel-ph img {
-      max-width: 92%;
-      max-height: 92%;
-      transform: scale(1);
+      max-width: 108%;
+      max-height: 108%;
+      transform: scale(1.14);
     }
-    .bike-card:hover .gravel-ph img { transform: scale(1.04); }
+    .bike-card:hover .gravel-ph img { transform: scale(1.18); }
 
     .bike-photo.gravel-ph { background: #ffffff; }
 
@@ -471,8 +475,18 @@
       .form-top {
         text-align: center;
       }
-      .divider-line {
-        margin-inline: auto;
+      .bikes-section-title {
+        font-size: clamp(19px, 5.8vw, 24px);
+        white-space: nowrap;
+        margin-bottom: 26px;
+      }
+      .bike-mobile-title {
+        display: block;
+        text-align: center;
+        font-size: 28px;
+        font-weight: 900;
+        margin: 10px 0 18px;
+        color: var(--text);
       }
       .bike-card { grid-template-columns: 1fr; }
       .bike-photo {
@@ -753,6 +767,7 @@
       </section>
 
       <div class="bike-panel">
+        <h3 class="bike-mobile-title">אופני המבחן שלנו</h3>
         <div class="bike-card">
           <div class="bike-photo gravel-ph">
             <img src="gravel-model-1.webp" alt="Orbea Terra Carbon OMR" onerror="this.style.display='none'" />
