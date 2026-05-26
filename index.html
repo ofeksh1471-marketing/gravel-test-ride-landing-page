@@ -122,17 +122,17 @@
 
     /* ── FORM SECTION ── */
     .form-section {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 60px 24px 80px;
+      max-width: none;
+      margin: 0;
+      padding: 0;
     }
 
     .form-top {
-      text-align: center;
-      margin-bottom: 40px;
+      text-align: right;
+      margin-bottom: 28px;
     }
     .form-top h2 {
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 900;
       margin-bottom: 8px;
       color: var(--text);
@@ -147,7 +147,7 @@
       height: 4px;
       background: var(--orange);
       border-radius: 4px;
-      margin: 16px auto 0;
+      margin: 16px 0 0;
     }
 
     /* ── INPUTS ── */
@@ -282,12 +282,12 @@
       color: var(--muted);
     }
 
-    /* ── BIKES SECTION ── */
+    /* ── SIGNUP + BIKE SECTION ── */
     .bikes-section {
       background: #f4f4f4;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 64px 24px;
+      padding: 58px 24px 68px;
     }
 
     .bikes-section-title {
@@ -295,17 +295,35 @@
       font-size: clamp(32px, 5vw, 52px);
       font-weight: 900;
       color: var(--text);
-      margin-bottom: 48px;
+      margin-bottom: 34px;
       letter-spacing: -0.5px;
     }
     .bikes-section-title span { color: var(--orange); }
 
-    .bikes-grid {
+    .signup-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
+      grid-template-columns: minmax(380px, .86fr) minmax(0, 1.14fr);
+      grid-template-areas: "form bike";
       gap: 24px;
-      max-width: 920px;
+      max-width: 1180px;
       margin: 0 auto;
+      direction: ltr;
+      align-items: stretch;
+    }
+
+    .form-panel {
+      grid-area: form;
+      direction: rtl;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.06);
+    }
+
+    .bike-panel {
+      grid-area: bike;
+      direction: rtl;
     }
 
     .bike-card {
@@ -315,8 +333,9 @@
       border: 1.5px solid var(--border);
       transition: box-shadow .25s, transform .25s;
       display: grid;
-      grid-template-columns: 1.18fr .82fr;
+      grid-template-columns: 1fr;
       align-items: stretch;
+      height: 100%;
     }
     .bike-card:hover {
       box-shadow: 0 12px 48px rgba(0,0,0,.12);
@@ -326,12 +345,12 @@
     /* Photo area */
     .bike-photo {
       width: 100%;
-      min-height: 360px;
+      min-height: 270px;
       background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 28px 32px;
+      padding: 24px 26px 14px;
       overflow: hidden;
     }
     .bike-photo img {
@@ -356,10 +375,12 @@
 
     /* Info block */
     .bike-info {
-      padding: 34px 32px 20px 22px;
+      padding: 20px 30px 22px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      text-align: center;
     }
     .bike-brand-tag {
       display: block;
@@ -372,13 +393,13 @@
       object-fit: contain;
     }
     .bike-name {
-      font-size: clamp(26px, 3.05vw, 38px);
+      font-size: clamp(30px, 3.3vw, 42px);
       font-weight: 900;
       color: var(--text);
       line-height: 1.05;
       margin-bottom: 10px;
       direction: ltr;
-      text-align: right;
+      text-align: center;
       unicode-bidi: isolate;
       white-space: nowrap;
       letter-spacing: 0;
@@ -388,6 +409,7 @@
       color: var(--muted);
       line-height: 1.55;
       margin-bottom: 0;
+      max-width: 520px;
     }
 
     /* Specs row */
@@ -402,17 +424,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 178px;
-      padding: 24px 20px 26px;
-      gap: 12px;
+      min-height: 132px;
+      padding: 18px 14px 20px;
+      gap: 9px;
       border-right: 1px solid var(--border);
       border-bottom: none;
       text-align: center;
     }
     .spec-item:first-child { border-right: none; }
     .spec-icon {
-      width: 92px;
-      height: 92px;
+      width: 66px;
+      height: 66px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -427,7 +449,7 @@
       mix-blend-mode: multiply;
     }
     .spec-value {
-      font-size: 14.5px;
+      font-size: 13px;
       font-weight: 800;
       color: var(--text);
       text-align: center;
@@ -444,6 +466,21 @@
     }
 
     @media (max-width: 680px) {
+      .signup-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "form"
+          "bike";
+      }
+      .form-panel {
+        padding: 26px 18px;
+      }
+      .form-top {
+        text-align: center;
+      }
+      .divider-line {
+        margin-inline: auto;
+      }
       .bike-card { grid-template-columns: 1fr; }
       .bike-photo {
         aspect-ratio: 16 / 10;
@@ -465,8 +502,8 @@
       }
       .spec-item:last-child { border-bottom: none; }
       .spec-icon {
-        width: 76px;
-        height: 76px;
+        width: 68px;
+        height: 68px;
       }
     }
 
@@ -647,106 +684,104 @@
   </div>
 
 
-  <!-- ── BIKES ── -->
+  <!-- ── BIKE + FORM ── -->
   <section class="bikes-section">
-    <h2 class="bikes-section-title">אופני המבחן <span>שלנו</span></h2>
-    <div class="bikes-grid">
+    <h2 class="bikes-section-title">הרשמה לרכיבת מבחן <span>גראבל</span></h2>
+    <div class="signup-layout">
 
-      <!-- GRAVEL MODEL -->
-      <div class="bike-card">
-        <div class="bike-photo gravel-ph">
-          <img src="gravel-model-1.webp" alt="Orbea Terra Carbon OMR" onerror="this.style.display='none'" />
+      <section class="form-panel form-section" aria-labelledby="signup-title">
+        <div class="form-top">
+          <h2 id="signup-title">שריינו רכיבת מבחן</h2>
+          <p>אתם ממלאים פרטים, אנחנו דואגים לכל השאר</p>
+          <div class="divider-line"></div>
         </div>
-        <div class="bike-info">
-          <div class="bike-brand-tag"><img src="orbea-logo.png" alt="ORBEA" /></div>
-          <div class="bike-name">TERRA M31eTEAM 1X</div>
-          <div class="bike-desc">אופני גראבל עם שלדת קרבון - ביצועים, שליטה, נוחות וביטחון.</div>
+
+        <form id="signup-form" name="gravel-test-ride" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="gravel-test-ride" />
+          <input type="hidden" name="bot-field" style="display:none" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" name="שם-פרטי" placeholder="שם פרטי*" required />
+            </div>
+            <div class="form-group">
+              <input type="text" name="שם-משפחה" placeholder="שם משפחה*" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="אימייל" placeholder="דואר אלקטרוני*" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <input type="tel" name="טלפון" placeholder="טלפון נייד*" inputmode="numeric" dir="rtl" required />
+            </div>
+            <div class="form-group">
+              <input type="text" name="עיר" placeholder="עיר מגורים*" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="number" name="גובה" placeholder="גובה בס&quot;מ (לצורך התאמת מידת האופניים)*" min="140" max="220" required />
+          </div>
+
+          <input type="hidden" name="דגם-מבוקש" value="ORBEA TERRA M31eTEAM 1X" />
+
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" name="אישור-דיוור" id="cb-marketing" value="מאשר" />
+              <span>אני מאשר/ת קבלת דיוור (פרטיך ישמשו אותנו ליצירת קשר בלבד ולא יועברו לצד שלישי)</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="אישור-תנאים" id="cb-terms" value="מאשר" required />
+              <span>אני מאשר/ת שקראתי והסכמתי לתנאי השימוש ו<a class="privacy-link" href="https://www.recycles.co.il/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA_%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות</a> *</span>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">הרשמה</button>
+
+        </form>
+
+        <!-- הודעת הצלחה -->
+        <div class="success-msg" id="success">
+          <div class="check">✅</div>
+          <h3>נרשמת בהצלחה!</h3>
+          <p>ניצור איתך קשר בקרוב לתיאום רכיבת המבחן.</p>
         </div>
-        <div class="bike-specs">
-          <div class="spec-item">
-            <!-- שלדה -->
-            <div class="spec-icon"><img src="spec-frame-icon.png" alt="" /></div>
-            <div class="spec-value"><span class="spec-label">שלדה</span>Orbea Terra Carbon OMR</div>
+      </section>
+
+      <div class="bike-panel">
+        <div class="bike-card">
+          <div class="bike-photo gravel-ph">
+            <img src="gravel-model-1.webp" alt="Orbea Terra Carbon OMR" onerror="this.style.display='none'" />
           </div>
-          <div class="spec-item">
-            <!-- מערכת הילוכים -->
-            <div class="spec-icon"><img src="spec-drivetrain-icon.webp" alt="" /></div>
-            <div class="spec-value"><span class="spec-label">מערכת הילוכים</span>SRAM Rival XPLR AXS 1×13</div>
+          <div class="bike-info">
+            <div class="bike-brand-tag"><img src="orbea-logo.png" alt="ORBEA" /></div>
+            <div class="bike-name">TERRA M31eTEAM 1X</div>
+            <div class="bike-desc">אופני גראבל עם שלדת קרבון - ביצועים, שליטה, נוחות וביטחון.</div>
           </div>
-          <div class="spec-item">
-            <!-- גלגלים -->
-            <div class="spec-icon spec-icon-wheel"><img src="spec-wheel-icon.svg" alt="" /></div>
-            <div class="spec-value"><span class="spec-label">גלגלים</span>Oquo Road Control RC25PRO</div>
+          <div class="bike-specs">
+            <div class="spec-item">
+              <!-- שלדה -->
+              <div class="spec-icon"><img src="spec-frame-icon.png" alt="" /></div>
+              <div class="spec-value"><span class="spec-label">שלדה</span>Orbea Terra Carbon OMR</div>
+            </div>
+            <div class="spec-item">
+              <!-- מערכת הילוכים -->
+              <div class="spec-icon"><img src="spec-drivetrain-icon.webp" alt="" /></div>
+              <div class="spec-value"><span class="spec-label">מערכת הילוכים</span>SRAM Rival XPLR AXS 1×13</div>
+            </div>
+            <div class="spec-item">
+              <!-- גלגלים -->
+              <div class="spec-icon spec-icon-wheel"><img src="spec-wheel-icon.svg" alt="" /></div>
+              <div class="spec-value"><span class="spec-label">גלגלים</span>Oquo Road Control RC25PRO</div>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
-  </section>
-
-  <!-- ── FORM ── -->
-  <section class="form-section">
-
-    <div class="form-top">
-      <h2>הרשמה לרכיבת מבחן</h2>
-      <p>אתם ממלאים פרטים, אנחנו דואגים לכל השאר</p>
-      <div class="divider-line"></div>
-    </div>
-
-    <form id="signup-form" name="gravel-test-ride" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="gravel-test-ride" />
-      <input type="hidden" name="bot-field" style="display:none" />
-
-      <div class="form-row">
-        <div class="form-group">
-          <input type="text" name="שם-פרטי" placeholder="שם פרטי*" required />
-        </div>
-        <div class="form-group">
-          <input type="text" name="שם-משפחה" placeholder="שם משפחה*" required />
-        </div>
-      </div>
-
-      <div class="form-group">
-        <input type="email" name="אימייל" placeholder="דואר אלקטרוני*" required />
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <input type="tel" name="טלפון" placeholder="טלפון נייד*" inputmode="numeric" dir="rtl" required />
-        </div>
-        <div class="form-group">
-          <input type="text" name="עיר" placeholder="עיר מגורים*" required />
-        </div>
-      </div>
-
-      <div class="form-group">
-        <input type="number" name="גובה" placeholder="גובה בס&quot;מ (לצורך התאמת מידת האופניים)*" min="140" max="220" required />
-      </div>
-
-      <input type="hidden" name="דגם-מבוקש" value="ORBEA TERRA M31eTEAM 1X" />
-
-      <div class="checkbox-group">
-        <label class="checkbox-item">
-          <input type="checkbox" name="אישור-דיוור" id="cb-marketing" value="מאשר" />
-          <span>אני מאשר/ת קבלת דיוור (פרטיך ישמשו אותנו ליצירת קשר בלבד ולא יועברו לצד שלישי)</span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="אישור-תנאים" id="cb-terms" value="מאשר" required />
-          <span>אני מאשר/ת שקראתי והסכמתי לתנאי השימוש ו<a class="privacy-link" href="https://www.recycles.co.il/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA_%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות</a> *</span>
-        </label>
-      </div>
-
-      <button type="submit" class="submit-btn">הרשמה</button>
-
-    </form>
-
-    <!-- הודעת הצלחה -->
-    <div class="success-msg" id="success">
-      <div class="check">✅</div>
-      <h3>נרשמת בהצלחה!</h3>
-      <p>ניצור איתך קשר בקרוב לתיאום רכיבת המבחן.</p>
-    </div>
-
   </section>
 
 
